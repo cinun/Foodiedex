@@ -14,7 +14,6 @@ struct ContentView: View {
     @State private var currentImageIndex = 0
 
 
-    let imageDirectory = "/Users/yathartharegmi/Startup/Foodiedex/Foodiedex/Assets.xcassets"
     var imageNames: [String] {
         guard let imageFiles = Bundle.main.urls(forResourcesWithExtension: "jpg", subdirectory: "Pics") else {
                 return []
@@ -23,6 +22,7 @@ struct ContentView: View {
         }
 
     var body: some View {
+        
           VStack {
               if imageNames.isEmpty {
                   Text("No images found")
