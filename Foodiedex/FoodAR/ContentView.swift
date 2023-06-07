@@ -22,7 +22,7 @@ struct ContentView: View {
         }
 
     var body: some View {
-        
+       
           VStack {
               if imageNames.isEmpty {
                   Text("No images found")
@@ -33,7 +33,7 @@ struct ContentView: View {
                   Image(parsedImageName)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        //.frame(width: 300, height: 300)
+                        .frame(width: 300, height: 300)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                         .offset(x: translation.width, y: translation.height)
                         .gesture(
@@ -54,11 +54,11 @@ struct ContentView: View {
                         .animation(.spring(), value: 0.8)
                         .transition(.slide)
               }
-              
+
               Text(swipeStatus.rawValue)
                   .font(.title)
                   .padding()
-              
+
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -67,6 +67,7 @@ struct ContentView: View {
     
     func updateImage() {
         currentImageIndex = (currentImageIndex + 1) % imageNames.count
+        translation = .zero
     }
 }
 
